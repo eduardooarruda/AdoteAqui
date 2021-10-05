@@ -1,1 +1,21 @@
-<h1>Cadastro</h1>
+{% extends 'base.html' %}
+
+{% block titulo %}Cadastrar{% endblock %}
+
+{% block conteudo %}
+
+<form action="/addcadastro" method="post">
+    <div class="mb-3">
+        <label for="nome" class="form-label">Digite seu nome: </label>
+        <input type="text" class="form-control" id="nome" placeholder="" name="nome" required>
+    </div>
+    <div class="mb-3">
+        <label for="senha" class="form-label">Digite a sua senha: </label>
+        <input type="text" class="form-control" id="titulo" placeholder="" name="senha" required>
+    </div>
+    <button type="submit" class="btn btn-primary">Cadastrar</button>
+</form>
+
+
+
+{% endblock conteudo %}

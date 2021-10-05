@@ -1,7 +1,23 @@
-from flask import Blueprint, render_template
+from flask import Blueprint, render_template, request, flash, redirect
+from usuario.entidades import Usuario
+from app import db
 
 bp_usuarios = Blueprint('usuarios', __name__, template_folder='templates_usuarios')
 
 @bp_usuarios.route('/cadastro')
 def cadastro():
     return render_template('cadastro.html')
+
+@bp_usuarios.route('/banco')
+def banco():
+    usuarios = Usuario.query.all()
+    return(usuarios)
+
+@bp_usuarios.post('/addcadastro')
+def cadastrar():
+    usuario = Usuario()
+    usuario.nome = request.form['nome']
+    usuario.senha = request.form['senha']
+    db.session.add(usuario)
+    db.session.commit()
+    return redirect('/')
