@@ -22,7 +22,7 @@ def cadastrar():
     db.session.add(usuario)
     db.session.commit()
 
-    animal.dono = request.form['nome']
+    animal.dono = int(request.form['ID'])
     animal.nome = request.form['nomeAnimal']
     db.session.add(animal)
     db.session.commit()
