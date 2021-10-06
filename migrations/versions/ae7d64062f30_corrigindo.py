@@ -1,8 +1,8 @@
-"""inicio do banco de dados
+"""Corrigindo
 
-Revision ID: a35c2def0d85
+Revision ID: ae7d64062f30
 Revises: 
-Create Date: 2021-10-06 10:33:52.005393
+Create Date: 2021-10-06 19:44:45.067012
 
 """
 from alembic import op
@@ -10,7 +10,7 @@ import sqlalchemy as sa
 
 
 # revision identifiers, used by Alembic.
-revision = 'a35c2def0d85'
+revision = 'ae7d64062f30'
 down_revision = None
 branch_labels = None
 depends_on = None
@@ -22,13 +22,13 @@ def upgrade():
     sa.Column('id', sa.Integer(), nullable=False),
     sa.Column('senha', sa.String(length=100), nullable=False),
     sa.Column('nome', sa.String(length=100), nullable=False),
-    sa.PrimaryKeyConstraint('id', 'nome', name=op.f('pk_usuario'))
+    sa.PrimaryKeyConstraint('id', name=op.f('pk_usuario'))
     )
     op.create_table('animal',
     sa.Column('id', sa.Integer(), nullable=False),
     sa.Column('nome', sa.String(length=100), nullable=False),
-    sa.Column('dono', sa.String(length=100), nullable=False),
-    sa.ForeignKeyConstraint(['dono'], ['usuario.nome'], name=op.f('fk_animal_dono_usuario')),
+    sa.Column('dono', sa.Integer(), nullable=False),
+    sa.ForeignKeyConstraint(['dono'], ['usuario.id'], name=op.f('fk_animal_dono_usuario')),
     sa.PrimaryKeyConstraint('id', name=op.f('pk_animal'))
     )
     # ### end Alembic commands ###
