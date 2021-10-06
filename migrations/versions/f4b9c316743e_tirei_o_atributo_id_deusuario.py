@@ -1,8 +1,8 @@
-"""2 tentaiva
+"""tirei o atributo id deusuario
 
-Revision ID: 9d17b2d04db3
-Revises: f69e028e6b35
-Create Date: 2021-10-05 16:33:31.253456
+Revision ID: f4b9c316743e
+Revises: a35c2def0d85
+Create Date: 2021-10-06 10:37:50.002394
 
 """
 from alembic import op
@@ -10,8 +10,8 @@ import sqlalchemy as sa
 
 
 # revision identifiers, used by Alembic.
-revision = '9d17b2d04db3'
-down_revision = 'f69e028e6b35'
+revision = 'f4b9c316743e'
+down_revision = 'a35c2def0d85'
 branch_labels = None
 depends_on = None
 
