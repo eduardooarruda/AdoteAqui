@@ -1,8 +1,8 @@
-"""criação do banco
+"""inicio do banco de dados
 
-Revision ID: f69e028e6b35
+Revision ID: a35c2def0d85
 Revises: 
-Create Date: 2021-10-05 16:28:45.753395
+Create Date: 2021-10-06 10:33:52.005393
 
 """
 from alembic import op
@@ -10,7 +10,7 @@ import sqlalchemy as sa
 
 
 # revision identifiers, used by Alembic.
-revision = 'f69e028e6b35'
+revision = 'a35c2def0d85'
 down_revision = None
 branch_labels = None
 depends_on = None
@@ -27,7 +27,7 @@ def upgrade():
     op.create_table('animal',
     sa.Column('id', sa.Integer(), nullable=False),
     sa.Column('nome', sa.String(length=100), nullable=False),
-    sa.Column('dono', sa.Integer(), nullable=False),
+    sa.Column('dono', sa.String(length=100), nullable=False),
     sa.ForeignKeyConstraint(['dono'], ['usuario.nome'], name=op.f('fk_animal_dono_usuario')),
     sa.PrimaryKeyConstraint('id', name=op.f('pk_animal'))
     )

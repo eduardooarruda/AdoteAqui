@@ -18,7 +18,7 @@ db = SQLAlchemy(metadata=metadata)
 migrate = Migrate()
 
 def create_app(): 
-
+    load_dotenv('.env') 
     app = Flask(__name__)
     
     app.secret_key = os.getenv('SECRET_KEY')
@@ -28,8 +28,6 @@ def create_app():
     db.init_app(app)
     migrate.init_app(app, db, render_as_batch=True)
     with app.app_context():
-
-        load_dotenv('.env')
 
         from usuario.usuario import bp_usuarios
         app.register_blueprint(bp_usuarios)

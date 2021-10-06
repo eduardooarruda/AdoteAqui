@@ -9,4 +9,4 @@ class Usuario(db.Model):
 class Animal(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     nome = db.Column(db.String(100), nullable=False)
-    dono = db.Column(db.Integer, db.ForeignKey('usuario.nome'), nullable=False)
+    dono = db.Column(db.String(100), db.ForeignKey('usuario.nome'), nullable=False)
