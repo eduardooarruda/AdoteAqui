@@ -1,6 +1,6 @@
 from flask import Blueprint, render_template, request, flash, redirect
 from usuario.entidades import Usuario, Animal
-from app import db
+from app import db, bcrypt
 
 bp_usuarios = Blueprint('usuarios', __name__, template_folder='templates_usuarios')
 
@@ -18,7 +18,7 @@ def cadastrar():
     usuario = Usuario()
     animal = Animal()
     usuario.nome = request.form['nome']
-    usuario.senha = request.form['senha']
+    usuario.senha = bcrypt.generate_password_hash(request.form['senha'])
     db.session.add(usuario)
     db.session.commit()
 

@@ -1,8 +1,8 @@
-"""Corrigindo
+"""inicio
 
-Revision ID: ae7d64062f30
+Revision ID: abc5d81a8118
 Revises: 
-Create Date: 2021-10-06 19:44:45.067012
+Create Date: 2021-10-06 21:10:52.503901
 
 """
 from alembic import op
@@ -10,7 +10,7 @@ import sqlalchemy as sa
 
 
 # revision identifiers, used by Alembic.
-revision = 'ae7d64062f30'
+revision = 'abc5d81a8118'
 down_revision = None
 branch_labels = None
 depends_on = None
@@ -22,6 +22,7 @@ def upgrade():
     sa.Column('id', sa.Integer(), nullable=False),
     sa.Column('senha', sa.String(length=100), nullable=False),
     sa.Column('nome', sa.String(length=100), nullable=False),
+    sa.Column('telefone', sa.Integer(), nullable=True),
     sa.PrimaryKeyConstraint('id', name=op.f('pk_usuario'))
     )
     op.create_table('animal',

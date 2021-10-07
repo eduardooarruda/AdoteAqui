@@ -4,6 +4,7 @@ class Usuario(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     senha = db.Column(db.String(100), nullable=False)
     nome = db.Column(db.String(100), nullable=False)
+    telefone = db.Column(db.Integer)
     animais = db.relationship('Animal', backref='usuario', lazy=True)
 
 class Animal(db.Model):
